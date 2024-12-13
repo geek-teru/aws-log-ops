@@ -1,0 +1,25 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "AWSCloudTrailCreateLogStream",
+        "Effect": "Allow",
+        "Action": [
+          "logs:CreateLogStream"
+        ],
+        "Resource": [
+          "arn:aws:logs:*"
+        ]
+      },
+      {
+        "Sid": "AWSCloudTrailPutLogEvents",
+        "Effect": "Allow",
+        "Action": [
+          "logs:PutLogEvents"
+        ],
+        "Resource": [
+          "arn:aws:logs:*"
+        ]
+      }
+    ]
+  }

@@ -1,0 +1,47 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AWSCloudTrailActions",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "cloudtrail.amazonaws.com"
+            },
+            "Action": [
+                "s3:GetBucketAcl",
+                "s3:ListBucket",
+                "s3:PutObject"
+            ],
+            "Resource": [
+                "${bucket_arn}",
+                "${bucket_arn}/*"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "AWS:SourceAccount": "${account_id}"
+                }
+            }
+        },
+        {
+            "Sid": "AWSConfigActions",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "config.amazonaws.com"
+            },
+            "Action": [
+                "s3:GetBucketAcl",
+                "s3:ListBucket",
+                "s3:PutObject"
+            ],
+            "Resource": [
+                "${bucket_arn}",
+                "${bucket_arn}/*"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "AWS:SourceAccount": "${account_id}"
+                }
+            }
+        }
+    ]
+}
