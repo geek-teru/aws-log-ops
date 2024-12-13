@@ -23,3 +23,11 @@ module "trail" {
   depends_on       = [module.iam, module.s3]
 }
 
+module "config" {
+  source   = "../../modules/config"
+  env      = var.env
+  sys_name = var.sys_name
+
+  logs_bucket_name = module.s3.logs_bucket.bucket
+  depends_on       = [module.s3]
+}
