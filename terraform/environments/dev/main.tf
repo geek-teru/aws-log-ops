@@ -32,6 +32,12 @@ module "config" {
   depends_on       = [module.s3]
 }
 
+# module "vpc_flow_log" {
+#   source         = "../../modules/vpc-flow-log"
+#   vpc_id = "" # dataで取得する。
+#   logs_bucket_name = module.s3.logs_bucket.bucket
+# }
+
 module "datacatalog" {
   source         = "../../modules/datacatalog"
   env            = var.env
