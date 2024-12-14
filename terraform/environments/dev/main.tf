@@ -31,3 +31,12 @@ module "config" {
   logs_bucket_name = module.s3.logs_bucket.bucket
   depends_on       = [module.s3]
 }
+
+module "datacatalog" {
+  source         = "../../modules/datacatalog"
+  env            = var.env
+  sys_name       = var.sys_name
+  aws_account_id = data.aws_caller_identity.current.account_id
+
+  logs_bucket_name = module.s3.logs_bucket.bucket
+}
