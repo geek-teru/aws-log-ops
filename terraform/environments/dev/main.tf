@@ -46,3 +46,7 @@ module "datacatalog" {
 
   logs_bucket_name = module.s3.logs_bucket.bucket
 }
+
+output "s3" {
+  value = module.s3
+}
